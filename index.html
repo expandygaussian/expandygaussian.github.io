@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ExpanDyNeRF: Expanding the Viewpoint of Dynamic Scenes beyond Constrained
+      Camera Motions
+    </title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+      .authors {
+        font-size: 1.2rem;
+        margin: 20px 0;
+        line-height: 1.8;
+      }
+      .affiliations {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+      .notes {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+      }
+      .button {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .button:hover {
+        background-color: #555;
+      }
+      .tagline {
+        font-size: 1.2rem;
+        margin: 40px auto;
+        max-width: 800px;
+        text-align: center;
+        line-height: 1.8;
+      }
+      sup {
+        font-size: 0.7em;
+        vertical-align: super;
+      }
+      .author-name {
+        color: #0366d6;
+      }
+      .abstract {
+        text-align: justify;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        margin: 40px auto;
+        max-width: 800px;
+      }
+      .abstract h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .abstract p {
+        line-height: 1.8;
+      }
+      .results {
+        text-align: justify;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        margin: 40px auto;
+        max-width: 800px;
+      }
+      .results h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .results p {
+        line-height: 1.8;
+      }
+      .syndm {
+        text-align: justify;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        margin: 40px auto;
+        max-width: 800px;
+      }
+      .syndm h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .syndm p {
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        ExpanDyNeRF: Expanding the Viewpoint of Dynamic Scenes beyond
+        Constrained Camera Motions
+      </h1>
+
+      <h2>ICML 2025</h2>
+
+      <div class="authors">
+        <span class="author-name">Le Jiang<sup>1*</sup></span
+        >, <span class="author-name">Shaotong Zhu<sup>1*</sup></span
+        >, <span class="author-name">Yedi Luo<sup>1*</sup></span
+        >, <span class="author-name">Sarah Ostadabbas<sup>1†</sup></span
+        >,<br />
+        <span class="author-name">Shayda Moezzi<sup>1</sup></span>
+      </div>
+
+      <div class="affiliations"><sup>1</sup>Northeastern University</div>
+
+      <div class="notes">
+        <sup>*</sup> Contribute equally. &nbsp;&nbsp; <sup>†</sup>Corresponding
+        author.
+      </div>
+
+      <div class="buttons">
+        <a href="https://openreview.net/pdf?id=L3DxhwXKZk" class="button"
+          >📄 Paper(Arxiv)</a
+        >
+        <!-- <a href="#" class="button">📝 OpenReview</a> -->
+        <a href="#" class="button">🎬 Video [coming soon]</a>
+        <a href="#" class="button">💻 Code and data</a>
+      </div>
+
+      <div class="tagline">
+        <p>
+          Given a casually captured monocular video ,<br />
+          ExpanDyNeRF is able to learn a dynamic NeRF representation for
+          novel-view synthesis
+        </p>
+      </div>
+
+      <div class="video-container">
+        <video controls autoplay loop muted width="100%">
+          <source src="assets/figure1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="abstract">
+        <h3>Abstract:</h3>
+        <p>
+          In the domain of dynamic Neural Radiance Fields (NeRF) for novel view
+          synthesis, current state-of-the-art (SOTA) techniques struggle when
+          the camera's pose deviates significantly from the primary viewpoint,
+          resulting in unstable and unrealistic outcomes. This paper introduces
+          Expanded Dynamic NeRF (ExpanDyNeRF), a monocular NeRF method that
+          integrates a Gaussian splatting prior to tackle novel view synthesis
+          with large-angle rotations. ExpanDyNeRF employs a pseudo ground truth
+          technique to optimize density and color features, which enables the
+          generation of realistic scene reconstructions from challenging
+          viewpoints. Additionally, we present the Synthetic Dynamic Multiview
+          (SynDM) dataset, the first GTA V-based dynamic multiview dataset
+          designed specifically for evaluating robust dynamic reconstruction
+          from significantly shifted views. We evaluate our method
+          quantitatively and qualitatively on both the SynDM dataset and the
+          widely recognized NVIDIA dataset, comparing it against other SOTA
+          methods for dynamic scene reconstruction. Our evaluation results
+          demonstrate that our method achieves superior performance.
+        </p>
+      </div>
+
+      <div class="results">
+        <h3>Results on Synthesis and Real-world Data</h3>
+        <p>
+          We conduct a comprehensive comparison between our ExpanDyNeRF and four
+          SOTA novel view synthesis methods: RoDynRF (Liu et al., 2023),
+          MonoNeRF (Fu et al., 2022), D3DGS (Yang et al., 2024), and D4NeRF
+          (Zhang et al., 2023a), on SynDM and NVIDIA datasets. Qualitative
+          results are shown in the video below with novel view deviated from -30
+          degree to 30 degree, and Quantitative results are shown in Table 1 via
+          FID score, PSNR, and LPIPS. Our method achieves the best performance
+          on both datasets.
+        </p>
+      </div>
+      <div class="video-container">
+        <video controls autoplay loop muted width="100%">
+          <source src="assets/figure2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="image-container">
+        <img
+          src="assets/table1.png"
+          alt="Table 1: Quantitative comparison results on SynDM dataset"
+          width="100%"
+        />
+      </div>
+
+      <div class="syndm">
+        <h3>SynDM dataset</h3>
+        <p>
+          The Synthetic Dynamic Multiview (SynDM) dataset is the first GTA
+          V-based dynamic multiview dataset designed specifically for evaluating
+          robust dynamic reconstruction from significantly shifted views. It
+          provides a comprehensive benchmark for testing novel view synthesis
+          methods under challenging conditions.
+        </p>
+      </div>
+
+      <div class="video-container">
+        <video controls autoplay loop muted width="100%">
+          <source src="assets/figure3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </body>
+</html>
