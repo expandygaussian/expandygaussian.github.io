@@ -1,1 +1,0 @@
-# expandygaussian.github.io
