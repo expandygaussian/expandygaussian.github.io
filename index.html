@@ -225,12 +225,13 @@
           Gaussian features and estimates camera poses. Then, through our novel
           pseudo ground truth optimization strategy, we optimize the density and
           color features to enable large-angle novel view synthesis. The final
-          output allows free viewpoint rendering with large view angle changes
-          (-30° to +30°). Our method consists of several key components: (1) SAM
+          output allows free viewpoint rendering with 360 degrees view angle
+          changes. Our method consists of several key components: (1) SAM
           segmentation for foreground-background separation, (2) Dynamic
           Gaussian feature extraction for both foreground and background
-          elements, (3) Gaussian prediction through trajectory optimization, and
-          (4) FLUX enhancement for improved visual quality.
+          elements, (3) Initial Gaussian prediction through given camera
+          trajectory, and (4) FLUX inpainting enhancement to supervise the
+          gaussian splatting model optimization.
         </p>
       </div>
 
