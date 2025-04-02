@@ -179,23 +179,26 @@
       <div class="abstract">
         <h3>Abstract:</h3>
         <p>
-          In the domain of dynamic Gaussian Splatting for novel view synthesis,
-          current state-of-the-art (SOTA) techniques struggle when the camera's
-          pose deviates significantly from the primary viewpoint, resulting in
-          unstable and unrealistic outcomes. This paper introduces Expanded
-          Dynamic Gaussian Splatting (ExpanDyGauss), a monocular Gaussian
-          Splatting method that tackle novel view synthesis with large-angle
-          rotations. ExpanDyGauss employs a pseudo ground truth technique to
-          optimize density and color features, which enables the generation of
-          realistic scene reconstructions from challenging viewpoints.
-          Additionally, we present the Synthetic Dynamic Multiview (SynDM)
-          dataset, the first GTA V-based dynamic multiview dataset designed
-          specifically for evaluating robust dynamic reconstruction from
-          significantly shifted views. We evaluate our method quantitatively and
-          qualitatively on both the SynDM dataset and the widely recognized
-          NVIDIA dataset, comparing it against other SOTA methods for dynamic
-          scene reconstruction. Our evaluation results demonstrate that our
-          method achieves superior performance.
+          In the area of dynamic Gaussian Splatting for novel view synthesis,
+          current state-of-the-art (SOTA) approaches often produce unstable and
+          unrealistic results when the camera pose deviates significantly from
+          the primary viewpoint. This paper introduces Expanded Dynamic Gaussian
+          Splatting (ExpanDyGauss), a monocular Gaussian Splatting method
+          designed to handle novel view synthesis under large-angle rotations.
+          To address the challenge of insufficient supervision from deviate
+          viewpoints across 360 degrees, ExpanDyGauss leverages a video-to-video
+          diffusion model to perform inpainting across space and time,
+          generating spatial-temporally consistent pseudo ground truth from the
+          available training data. This enhanced supervision enables more
+          effective optimization of the Gaussian Splatting model, leading to
+          realistic scene reconstructions even from challenging viewpoints. We
+          further introduce the Synthetic Dynamic Multiview (SynDM) dataset—the
+          first GTA V-based dynamic multiview dataset specifically constructed
+          to evaluate robust dynamic reconstructions from significantly shifted
+          camera views. Our method is evaluated both quantitatively and
+          qualitatively on SynDM and the widely used NVIDIA dataset, showing
+          that ExpanDyGauss outperforms existing SOTA methods for dynamic scene
+          reconstruction.
         </p>
       </div>
 
