@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      ExpanDyNeRF: Expanding the Viewpoint of Dynamic Scenes beyond Constrained
+      ExpanDyGauss: Expanding the Viewpoint of Dynamic Scenes beyond Constrained
       Camera Motions
     </title>
     <style>
@@ -120,16 +120,21 @@
       .syndm p {
         line-height: 1.8;
       }
+      .diagram-container {
+        margin: 40px auto;
+        max-width: 800px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>
-        ExpanDyNeRF: Expanding the Viewpoint of Dynamic Scenes beyond
+        ExpanDyGauss: Expanding the Viewpoint of Dynamic Scenes beyond
         Constrained Camera Motions
       </h1>
 
-      <h2>ICML 2025</h2>
+      <h2>BMVC 2025</h2>
 
       <div class="authors">
         <span class="author-name">Le Jiang<sup>1*</sup></span
@@ -159,7 +164,7 @@
       <div class="tagline">
         <p>
           Given a casually captured monocular video ,<br />
-          ExpanDyNeRF is able to learn a dynamic NeRF representation for
+          ExpanDyGauss is able to learn a dynamic Gaussian Splatting model for
           novel-view synthesis
         </p>
       </div>
@@ -174,23 +179,58 @@
       <div class="abstract">
         <h3>Abstract:</h3>
         <p>
-          In the domain of dynamic Neural Radiance Fields (NeRF) for novel view
-          synthesis, current state-of-the-art (SOTA) techniques struggle when
-          the camera's pose deviates significantly from the primary viewpoint,
-          resulting in unstable and unrealistic outcomes. This paper introduces
-          Expanded Dynamic NeRF (ExpanDyNeRF), a monocular NeRF method that
-          integrates a Gaussian splatting prior to tackle novel view synthesis
-          with large-angle rotations. ExpanDyNeRF employs a pseudo ground truth
-          technique to optimize density and color features, which enables the
-          generation of realistic scene reconstructions from challenging
-          viewpoints. Additionally, we present the Synthetic Dynamic Multiview
-          (SynDM) dataset, the first GTA V-based dynamic multiview dataset
-          designed specifically for evaluating robust dynamic reconstruction
-          from significantly shifted views. We evaluate our method
-          quantitatively and qualitatively on both the SynDM dataset and the
-          widely recognized NVIDIA dataset, comparing it against other SOTA
-          methods for dynamic scene reconstruction. Our evaluation results
-          demonstrate that our method achieves superior performance.
+          In the domain of dynamic Gaussian Splatting for novel view synthesis,
+          current state-of-the-art (SOTA) techniques struggle when the camera's
+          pose deviates significantly from the primary viewpoint, resulting in
+          unstable and unrealistic outcomes. This paper introduces Expanded
+          Dynamic Gaussian Splatting (ExpanDyGauss), a monocular Gaussian
+          Splatting method that tackle novel view synthesis with large-angle
+          rotations. ExpanDyGauss employs a pseudo ground truth technique to
+          optimize density and color features, which enables the generation of
+          realistic scene reconstructions from challenging viewpoints.
+          Additionally, we present the Synthetic Dynamic Multiview (SynDM)
+          dataset, the first GTA V-based dynamic multiview dataset designed
+          specifically for evaluating robust dynamic reconstruction from
+          significantly shifted views. We evaluate our method quantitatively and
+          qualitatively on both the SynDM dataset and the widely recognized
+          NVIDIA dataset, comparing it against other SOTA methods for dynamic
+          scene reconstruction. Our evaluation results demonstrate that our
+          method achieves superior performance.
+        </p>
+      </div>
+
+      <div class="diagram-container">
+        <img
+          src="assets/diagram.png"
+          alt="ExpanDyGauss Framework"
+          style="
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            display: block;
+          "
+        />
+        <p
+          style="
+            text-align: justify;
+            margin-top: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+          "
+        >
+          <strong>Figure 1:</strong> Overview of our ExpanDyGauss framework.
+          Given a monocular video input, our method first extracts dynamic
+          Gaussian features and estimates camera poses. Then, through our novel
+          pseudo ground truth optimization strategy, we optimize the density and
+          color features to enable large-angle novel view synthesis. The final
+          output allows free viewpoint rendering with large view angle changes
+          (-30° to +30°). Our method consists of several key components: (1) SAM
+          segmentation for foreground-background separation, (2) Dynamic
+          Gaussian feature extraction for both foreground and background
+          elements, (3) Gaussian prediction through trajectory optimization, and
+          (4) FLUX enhancement for improved visual quality.
         </p>
       </div>
 
@@ -198,8 +238,8 @@
         <h3>Demo on Synthesis Data</h3>
         <p>
           A demo of the results on SynDM dataset. For a monocular input video
-          with dynamic scene, our method can generate a dynamic NeRF model and
-          synthesize novel views.
+          with dynamic scene, our method can generate a dynamic Gaussian
+          Splatting model and synthesize novel views.
         </p>
       </div>
       <div class="video-container">
@@ -215,8 +255,8 @@
           To demonstrate the effectiveness of our method in the real world
           application, we applied our method on a casually captured monocular
           video, and the results are shown below. As the results show, our
-          method can generate a dynamic NeRF model for reasonable synthesize
-          novel view renderings.
+          method can generate a dynamic Gaussian Splatting model for reasonable
+          synthesize novel view renderings.
         </p>
       </div>
       <div class="video-container">
@@ -224,34 +264,6 @@
           <source src="assets/presentvideo2.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
-
-      <div class="results">
-        <h3>Quantitative Results</h3>
-        <p>
-          We conduct a comprehensive comparison between our ExpanDyNeRF and four
-          SOTA novel view synthesis methods: RoDynRF (Liu et al., 2023),
-          MonoNeRF (Fu et al., 2022), D3DGS (Yang et al., 2024), and D4NeRF
-          (Zhang et al., 2023a), on SynDM and NVIDIA datasets. Qualitative
-          results are shown in the video below with novel view deviated from -30
-          degree to 30 degree, and Quantitative results are shown in Table 1 via
-          FID score, PSNR, and LPIPS. Our method achieves the best performance
-          on both datasets.
-        </p>
-      </div>
-      <div class="video-container">
-        <video controls autoplay loop muted width="100%">
-          <source src="assets/figure2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="image-container">
-        <img
-          src="assets/table1.png"
-          alt="Table 1: Quantitative comparison results on SynDM dataset"
-          width="100%"
-        />
       </div>
 
       <div class="syndm">
